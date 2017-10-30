@@ -32,15 +32,5 @@ public class TestUrlShortenerService {
     Mockito.verify(urlsRepository, Mockito.times(1)).save(Mockito.any(Urls.class));
     Mockito.verifyNoMoreInteractions(urlsRepository);
   }
-
-  @Test
-  public void testUrlShorteningDuplicateEntry(){
-    Urls urls = new Urls("")
-    Mockito.when(urlsRepository.findOne(Mockito.anyString())).thenReturn(null);
-    ShortUrlResponse response = urlShortnerService.createShortUrl("http://google.com");
-
-    Mockito.verify(urlsRepository, Mockito.times(1)).findOne(Mockito.anyString());
-    Mockito.verify(urlsRepository, Mockito.times(1)).save(Mockito.any(Urls.class));
-    Mockito.verifyNoMoreInteractions(urlsRepository);
-  }
+  
 }
